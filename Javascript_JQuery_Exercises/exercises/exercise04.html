@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+    <meta name="description" content="description" />
+    <meta name="keywords" content="keywords" />
+    <meta name="author" content="author" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="../default.css" media="screen" />
+    <title>Exercise 04 - MSN Black List</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var list1 = $("#list1");
+            var list2 = $("#list2");
+            var str1 = "test1";
+            var str2 = "test2";
+            var option1 = $("<option>").text(str1);
+            var option2 = $("<option>").text(str2);
+            option1.appendTo(list1);
+            option2.appendTo(list2);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container2">
+
+        <div class="header">
+            <div class="title">
+                Exercise 04
+                <h1>MSN Black List</h1>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="../index.html">Home</a>
+            <div class="clearer"><span></span>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="content">
+
+                <p>
+                    以下兩個選單中的資料可互相移動，且可以自行新增/刪除資料。
+                </p>
+
+                <p>
+                    <table>
+                        <tr align="center">
+                            <td>
+                                <select id="list1" size="10" style="width:200px">
+                                    
+                                </select>
+                            </td>
+                            <td width="140px">
+                                <input type="button" style="width:100px" value="往右移動>>">
+                                <br/>
+                                <br/>
+                                <br/>
+                                <input type="button" style="width:100px" value="<<往左移動">
+                            </td>
+                            <td>
+                                <select id="list2" size="10" style="width:200px">
+                                    
+                                </select>
+                            </td>
+                        </tr>
+                        <tr height="50px" align="center">
+                            <td>
+                                <input id="del1" type="button" style="width:50px" value="刪除">
+                                <td>
+                                    <td>
+                                        <input id="del2" type="button" style="width:50px" value="刪除">
+                                        <td>
+                        </tr>
+                        <tr align="center">
+                            <td>
+                                <input id="input1" type="text" style="width:100px">
+                                <input id="add1" type="button" style="width:50px" value="新增">
+                                <td>
+                                    <td>
+                                        <input id="input2" type="text" style="width:100px">
+                                        <input id="add2" type="button" style="width:50px" value="新增">
+                                        <td>
+                        </tr>
+                    </table>
+                </p>
+
+            </div>
+            <script type="text/javascript">
+            </script>
+
+            <div class="clearer"><span></span>
+            </div>
+
+        </div>
+
+        <div class="footer">&copy; 2006 <a href="index.html">Website.com</a>. Valid <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a> &amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>. Template design by <a href="http://templates.arcsin.se">Arcsin</a>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="description" />
+<meta name="keywords" content="keywords" />
+<meta name="author" content="author" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../default.css"
+		media="screen" />
+	<title>Exercise 01 - Attributes for JQuery</title>
+	<link rel="stylesheet" href="../ui.datepicker.css" type="text/css"
+		media="screen" title="core css file" charset="utf-8" />
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script type="text/javascript" src="../ui.datepicker.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var textFlag = true, borderFlag = true;
+			$("#cardColor1").click(function() {
+				
+				$("#card").addClass("xStyle");
+			})
+			$("#cardColor2").click(function() {
+				
+				$("#card").addClass("yStyle");
+			})
+			$("#cardColor3").click(function() {
+				
+				$("#card").addClass("zStyle");
+			})
+			$("#button1").click(function() {
+				if (textFlag) {
+					var cardText = $("#text").val();
+					$("#text").attr("disabled", true);
+					$("#card").text(cardText);
+					$("#button1").val("解除鎖定");
+					textFlag = false;
+				} else {
+					$("#text").attr("disabled", false);
+					$("#button1").val("鎖定文字");
+					textFlag = true;
+				}
+			})
+
+			$("#button2").click(function() {
+				if (borderFlag) {
+					$("#card").removeClass("blackBorderStyle");
+					$("#card").addClass("redBorderStyle");
+					borderFlag=false;
+				} else {
+					$("#card").removeClass("redBorderStyle");
+					$("#card").addClass("blackBorderStyle");
+					borderFlag=true;
+				}
+			})
+			
+			$("#button3").click(function() {
+				var copyCard = $("#card").clone();
+				$("#card2").removeClass();
+				$("#card2").html(copyCard);
+			})
+
+		})
+	</script>
+	<style type="text/css">
+.defaultStyle {
+	background-color: #ffffff;
+	width: 300px;
+	height: 160px;
+	border: 1px;
+	text-align: center;
+	line-height: 160px;
+	font-size: 15px;
+}
+
+.blackBorderStyle {
+	border-width: 2px;
+	border-style: solid;
+	border-color: black;
+}
+
+.redBorderStyle {
+	border-width: 2px;
+	border-style: solid;
+	border-color: red;
+}
+
+
+.xStyle {
+	background-color: #40ff40;
+	font-size: 15px;
+}
+
+.yStyle {
+	background-color: #7f7fff;
+	font-size: 20px;
+}
+
+.zStyle {
+	background-color: #bfbfbf;
+	font-size: 25px;
+}
+</style>
+</head>
+
+<body>
+	<div class="container2">
+
+		<div class="header">
+			<div class="title">
+				Exercise 01
+				<h1>Attributes for JQuery</h1>
+			</div>
+		</div>
+
+		<div class="navigation">
+			<a href="../index.html">Home</a>
+			<div class="clearer">
+				<span></span>
+			</div>
+		</div>
+
+		<div class="main">
+			<div class="content">
+
+				<p>
+					請實做一簡易卡片產生器：
+					<li>當選擇樣式1、2、3時，卡片會分別套用xStyle、yStyle、zStyle</li>
+					<li>當按下"鎖定文字"按鈕時，會將"卡片1文字"框Disabled，同時將"卡片1文字"框內容寫入卡片一， <br />按鈕文字變為"解除鎖定"
+					</li>
+					<li>當按下"解除鎖定"，才可重新編輯文字框</li>
+					<li>按下變更框線，卡片1可以在紅黑兩種框線顏色中切換</li>
+					<li>按下卡片複製，會將卡片1的所有屬性及文字複製一份至卡片2</li> <br>
+						<blockquote>
+							Hint:
+							<a target="_blank"
+								href="http://api.jquery.com/category/manipulation/class-attribute/">Class
+								Attribute</a>
+						</blockquote>
+				</p>
+
+				<div></div>
+				<table>
+					<tr>
+						<td>卡片樣式： <input name="cardColor" id="cardColor1"
+							type="radio" />樣式1 <input name="cardColor" id="cardColor2"
+							type="radio" />樣式2 <input name="cardColor" id="cardColor3"
+							type="radio" />樣式3
+						</td>
+					</tr>
+					<tr>
+						<td>卡片1文字： <input id="text" type="text" value=""></td>
+						<td><input id="button1" type="button" value=" 鎖定文字 " /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input id="button2" type="button" value=" 變更框線 " /></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input id="button3" type="button" value=" 卡片複製 " /></td>
+					</tr>
+				</table>
+				卡片1
+				<div id="card" class="defaultStyle blackBorderStyle"></div>
+				卡片2
+				<div id="card2" class="defaultStyle blackBorderStyle"></div>
+
+			</div>
+			<div class="clearer">
+				<span></span>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			&copy; 2006 <a href="index.html">Website.com</a>. Valid <a
+				href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>
+			&amp; <a href="http://validator.w3.org/check?uri=referer">XHTML</a>.
+			Template design by <a href="http://templates.arcsin.se">Arcsin</a>
+		</div>
+	</div>
+</body>
+
+</html>
