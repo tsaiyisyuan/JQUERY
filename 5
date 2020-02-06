@@ -77,8 +77,17 @@
 			if (alarmClock == systemTime) {
 				console.log('myAlarm='+myAlarm);
 				clearInterval(myAlarm);
-				if (confirm('設定時間到囉~要延期請按[ok],取消鬧鐘請按[cancel]')) {
+				
+				if (confirm('設定時間到囉~要延期請按[確認],取消鬧鐘請按[取消]')) {
 					alert('已延期');
+					var newAlarmClock = ($('#hr').val() < 10 ? '0' : '') + $('#hr').val()
+					+ '-' + ($('#min').val() < 10 ? '0' : '') + $('#min').val()
+					+ '-' + ($('#sec').val() < 10 ? '0' : '') + parseInt($('#sec').val())+10;
+					var a = parseInt($('#sec').val())+10;
+					console.log('newAlarmClock='+newAlarmClock);
+					console.log('a='+a);
+					
+					
 				} else {
 					alert('已取消');
 				}
