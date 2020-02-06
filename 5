@@ -13,7 +13,7 @@
 	<title>Exercise 05 - Alarm</title> <script type="text/javascript"
 		src="../jquery.js"></script>
 	<script type="text/javascript">
-		var myAlarm = 0;
+		var myAlarm;
 		// add 0s 用來補0
 		function pad(num, digits) {
 			var len = num.toString().length;
@@ -63,23 +63,9 @@
 			//add the number to time select menu.
 			addNumToTimeSelectMenu();
 		});
-		function closeAlarm() {
-			console.log(myAlarm);
-			var aflag = clearInterval(myAlarm);
-		}
-
-		function alarmColorCheck(alarmColor, systemTime) {
-			if (alarmColor == systemTime) {
-				closeAlarm();
-				if (confirm('設定時間到囉~要延期請按[ok],取消鬧鐘請按[cancel]')) {
-					alert('已延期');
-				} else {
-					alert('已取消');
-				}
-			}
-		}
+	
 		function corfirmTime() {
-			var alarmColor = ($('#hr').val() < 10 ? '0' : '') + $('#hr').val()
+			var alarmClock = ($('#hr').val() < 10 ? '0' : '') + $('#hr').val()
 					+ '-' + ($('#min').val() < 10 ? '0' : '') + $('#min').val()
 					+ '-' + ($('#sec').val() < 10 ? '0' : '') + $('#sec').val();
 			var time = new Date();
@@ -88,14 +74,19 @@
 					+ (time.getMinutes() < 10 ? '0' : '') + time.getMinutes()
 					+ '-' + (time.getSeconds() < 10 ? '0' : '')
 					+ time.getSeconds();
-			setInterval(function() {
-				alarmColorCheck(alarmColor, systemTime)
-			}, 1000);
+			if (alarmClock == systemTime) {
+				console.log('myAlarm='+myAlarm);
+				clearInterval(myAlarm);
+				if (confirm('設定時間到囉~要延期請按[ok],取消鬧鐘請按[cancel]')) {
+					alert('已延期');
+				} else {
+					alert('已取消');
+				}
+			}
 		}
 
 		$(function() {
 			setInterval(function() {showTime(new Date())}, 1000);
-
 			$('#checkTime').click(function() {
 				myAlarm = setInterval(function() {corfirmTime()}, 1000);
 			});
